@@ -1,18 +1,48 @@
 <!DOCTYPE html>
-<html lang = "en">
+<html lang="en">
+
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <title>Weather App</title>
-        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
+            integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
     </head>
+
     <body>
-        
+
         <nav class="navbar navbar-dark bg-dark">
-            <span class="navbar-text h1 text-center">
-              Weather Dashboard
+            <span class="navbar-text h1 m-auto text-white">
+                Weather Dashboard
             </span>
-          </nav>
-        <script src='scripts.js' ></script>
+        </nav>
+
+        <div id="container">
+            <div class="row">
+                <!--first column containing search bar-->
+                <div class="col-md-4 bg-light">
+                    <!--search bar-->
+                    <h4 class="ml-3">Search for a city:</h4>
+                    <form class="form-inline my-2 my-lg-0 ml-3">
+                        <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+                        <button class="btn bg-primary my-2 my-sm-0" type="submit">Search</button>
+                    </form>
+                </div>
+                <!--second column containing weather info displays-->
+                <div class="col-md-8">
+                    <!--displays city/date/temp/etc.-->
+                    <div class="section border mr-2">
+                        <h2>City and Date</h2>
+                    </div>
+                    <!--displays 5-day forecast-->
+                    <div class="section mr-2">
+                        <h2>5-Day Forecast</h2>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+        <script src='scripts.js'></script>
     </body>
+
 </html>
