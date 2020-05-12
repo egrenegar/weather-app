@@ -1,18 +1,24 @@
+
+
+
 var searches = JSON.parse(localStorage.getItem('searches')) || [];
 
 function renderHistory() {
     $('#searches').empty();
 
-    for (var i = 0; i < history.length; i++) {
-        $('#searches').append($('<a>').text(history[i]));
+    for (var i = 0; i < searches.length; i++) {
+        var newSearch = $('<a>').text(searches[i]);
+        newSearch.attr('class', 'list-group-item list-group-item-action')
+        $('#searches').append(newSearch);
     }
 }
 
-$('form').on("submit", function(event) {
+$('form').on('submit', function(event) {
     event.preventDefault;
 
     var city = $("#city").val().trim();
     searches.push(city);
+    console.log(searches);
 
     localStorage.setItem('searches', JSON.stringify(searches))
 
