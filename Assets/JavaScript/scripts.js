@@ -38,18 +38,32 @@ $('form').on('submit', function (event) {
 // current weather and 5-day forecast
 function getWeather() {
     // grabs the data-city attribute from the event target
-    var cityName = $(this).attr('data-city');
-    var queryURL = 'http://api.openweathermap.org/data/2.5/weather?q=' + cityName + '&APPID=20a0e218c2b35d7287d3b43b10aa6e1f';
-
+    var city = $(this).attr('data-city');
+    var queryURL = 'http://api.openweathermap.org/data/2.5/weather?q=' + city + '&APPID=20a0e218c2b35d7287d3b43b10aa6e1f&units=imperial';
+    
 
     $.ajax({
         url: queryURL,
         method: "GET"
     }).then(function (response) {
         console.log(response);
-        $('#city-name').append($('<h2>').text(response.name));
+        var cityName = response.name
+        var temp = response.main.temp
+        var windSpeed = response.wind.speed
+        var humidity = response.main.humidity
+        // var lat = response
+        // var lon = response
+        $('#city-name').text(cityName)
+        $('#temp').text('Temperature: ' + temp + ' (F)')
+        $('#humidity').text('Humidity: ' + humidity)
+        $('#wind-speed').text('Wind Speed: ' + windSpeed + ' mph')
 
+        getUVIndex(lat, lon);
+        // $('#uv-index').text('UV Index: ' + uvIndex)
     });
+
+  
+
 
     // renderWeather();
 }

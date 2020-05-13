@@ -29,7 +29,7 @@
                 <!--first column containing search bar and previous searches-->
                 <div class="col-md-4 bg-light">
                     <!--search bar-->
-                    <h4 class="ml-3 mt-2">Search for a city:</h4>
+                    <p class="ml-3 mt-2">Search for a city:</p>
                     <form class="form-inline my-2 my-lg-0 mx-2">
                         <input class="form-control mr-sm-2" id="city-input" type="search" placeholder="Search"
                             aria-label="Search">
@@ -44,11 +44,15 @@
                 <!--second column containing weather info displays-->
                 <div class="col-md-8">
                     <!--displays city/date/temp/etc.-->
-                    <section class="border mr-2" >
-                       <div id="city-name"></div>
+                    <section class="border m-2 p-3" id="current-weather">
+                       <h2 id="city-name">Choose a city from the list or start a new search!</h2>
+                       <p id="temp">Temperature: </p>
+                       <p id="humidity">Humidity: </p>
+                       <p id="wind-speed">Wind Speed: </p>
+                       <p id="uv-index">UV Index: </p>
                     </section>
                     <!--displays 5-day forecast-->
-                    <section class="mr-2">
+                    <section class="mr-2 p-3" id="forecast">
                         <h2>5-Day Forecast:</h2>
                     </section>
 
