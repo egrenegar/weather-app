@@ -1,42 +1,38 @@
 
 var searches = JSON.parse(localStorage.getItem('searches')) || [];
 var d = new Date();
-var strDate = (d.getMonth()+1) + "/" + d.getDate() + "/" +  d.getFullYear();
-
+var strDate = (d.getMonth() + 1) + "/" + d.getDate() + "/" + d.getFullYear();
 
 function renderSearches() {
     $('#searches').empty();
-
     for (var i = 0; i < searches.length; i++) {
+        // only append to the page if search is not already present in the array
+        // if (indexOf.(search))
         var search = $('<a>').text(searches[i])
         search.attr('class', 'list-group-item list-group-item-action city')
         search.attr('data-city', searches[i])
         $('#searches').append(search)
     }
-
-    getWeather();
 }
 
 $('form').on('submit', function (event) {
+    event.preventDefault();
+
     var city = $("#city-input").val().trim();
     console.log(city)
-    event.preventDefault
-
     // pushes city search into searches array
     searches.push(city)
-
+    // stringify the searches and set to local storage
     localStorage.setItem('searches', JSON.stringify(searches))
-
     // clears out the search input field
     $('#city-input').val('')
-
     // render the previous searches to the sidebar
-    renderSearches();
+    getWeather(city);
+
 });
 
-function getWeather() {
-    // grabs the data-city attribute from the event target
-    var city = $(this).attr('data-city')
+function getWeather(city) {
+    console.log(city);
     var queryURL = 'http://api.openweathermap.org/data/2.5/weather?q=' + city + '&APPID=20a0e218c2b35d7287d3b43b10aa6e1f&units=imperial';
 
     $.ajax({
@@ -67,16 +63,17 @@ function getWeather() {
             var uvIndex = response.value
             $('#uv-index').text('UV Index: ' + uvIndex)
         })
-        
+
+        renderSearches();
     });
 }
 
-// function renderWeather(){
-
-// }
 
 // Adding click event listeners to all elements with a class of "city" when page loads
-$(document).on("click", ".city", getWeather);
+$(document).on("click", ".city", function(){
+    var city = $(this).attr('data-city')
+    getWeather(city);
+});
 
 // need to call here so that searches render unpon page load
 renderSearches();
