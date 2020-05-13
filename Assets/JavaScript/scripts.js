@@ -64,19 +64,25 @@ function getWeather(city) {
             $('#uv-index').text('UV Index: ' + uvIndex)
         })
 
-        renderSearches();
+        var queryURL = 'http://api.openweathermap.org/data/2.5/forecast?q=' + city + '&appid=20a0e218c2b35d7287d3b43b10aa6e1f'
+
+        $.ajax({
+            url: queryURL,
+            method: "GET"
+        }).then(function (response) {
+            console.log(response)
+        })
+
     });
+
+    renderSearches();
 }
 
-
 // Adding click event listeners to all elements with a class of "city" when page loads
-$(document).on("click", ".city", function(){
+$(document).on("click", ".city", function () {
     var city = $(this).attr('data-city')
     getWeather(city);
 });
 
 // need to call here so that searches render unpon page load
 renderSearches();
-
-
-
