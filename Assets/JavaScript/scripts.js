@@ -34,7 +34,7 @@ $('form').on('submit', function (event) {
 
 function getWeather(city) {
     console.log(city);
-    var queryURL = 'http://api.openweathermap.org/data/2.5/weather?q=' + city + '&APPID=20a0e218c2b35d7287d3b43b10aa6e1f&units=imperial';
+    var queryURL = 'https://api.openweathermap.org/data/2.5/weather?q=' + city + '&APPID=20a0e218c2b35d7287d3b43b10aa6e1f&units=imperial';
 
     $.ajax({
         url: queryURL,
@@ -47,14 +47,14 @@ function getWeather(city) {
         var humidity = response.main.humidity
         var lat = response.coord.lat
         var lon = response.coord.lon
-        var icon = $('<img>').attr('src', 'http://openweathermap.org/img/wn/' + response.weather[0].icon + '.png');
+        var icon = $('<img>').attr('src', 'https://openweathermap.org/img/wn/' + response.weather[0].icon + '.png');
         $('#city-name').text(cityName + ' ' + strDate)
         $('#city-name').append(icon)
         $('#temp').text('Temperature: ' + temp + ' \xB0F')
         $('#humidity').text('Humidity: ' + humidity + '%')
         $('#wind-speed').text('Wind Speed: ' + windSpeed + ' mph')
 
-        var queryURL = 'http://api.openweathermap.org/data/2.5/uvi?appid=20a0e218c2b35d7287d3b43b10aa6e1f&lat=' + lat + '&lon=' + lon;
+        var queryURL = 'https://api.openweathermap.org/data/2.5/uvi?appid=20a0e218c2b35d7287d3b43b10aa6e1f&lat=' + lat + '&lon=' + lon;
 
         $.ajax({
             url: queryURL,
