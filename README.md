@@ -8,5 +8,6 @@ UNCC Coding Boot Camp - Homework 06
 * GitHub Repository: https://github.com/egrenegar/weather-dashboard
 * Deployed Application: https://egrenegar.github.io/weather-dashboard/
 
-![](Assets/Image/WeatherApp.png)
+## Image of Deployed Application
+![](Assets/Images/WeatherApp.png)
 
