@@ -72,7 +72,7 @@ function getWeather(city) {
 
 function getForecast(city) {
 
-    var queryURL = 'http://api.openweathermap.org/data/2.5/forecast?q=' + city + '&appid=20a0e218c2b35d7287d3b43b10aa6e1f&units=imperial'
+    var queryURL = 'https://api.openweathermap.org/data/2.5/forecast?q=' + city + '&appid=20a0e218c2b35d7287d3b43b10aa6e1f&units=imperial'
 
     $.ajax({
         url: queryURL,
@@ -90,11 +90,11 @@ function getForecast(city) {
         var day4Humid = (response.list[27].main.humidity)
         var day5Temp = (response.list[35].main.temp).toFixed(1)
         var day5Humid = (response.list[35].main.humidity)
-        var day1icon = $('<img>').attr('src', 'http://openweathermap.org/img/wn/' + response.list[3].weather[0].icon + '.png')
-        var day2icon = $('<img>').attr('src', 'http://openweathermap.org/img/wn/' + response.list[11].weather[0].icon + '.png')
-        var day3icon = $('<img>').attr('src', 'http://openweathermap.org/img/wn/' + response.list[19].weather[0].icon + '.png')
-        var day4icon = $('<img>').attr('src', 'http://openweathermap.org/img/wn/' + response.list[27].weather[0].icon + '.png')
-        var day5icon = $('<img>').attr('src', 'http://openweathermap.org/img/wn/' + response.list[35].weather[0].icon + '.png')
+        var day1icon = $('<img>').attr('src', 'https://openweathermap.org/img/wn/' + response.list[3].weather[0].icon + '.png')
+        var day2icon = $('<img>').attr('src', 'https://openweathermap.org/img/wn/' + response.list[11].weather[0].icon + '.png')
+        var day3icon = $('<img>').attr('src', 'https://openweathermap.org/img/wn/' + response.list[19].weather[0].icon + '.png')
+        var day4icon = $('<img>').attr('src', 'https://openweathermap.org/img/wn/' + response.list[27].weather[0].icon + '.png')
+        var day5icon = $('<img>').attr('src', 'https://openweathermap.org/img/wn/' + response.list[35].weather[0].icon + '.png')
         $('#day1date').text(response.list[3].dt_txt.split(' ')[0])
         $('#day2date').text(response.list[11].dt_txt.split(' ')[0])
         $('#day3date').text(response.list[19].dt_txt.split(' ')[0])
