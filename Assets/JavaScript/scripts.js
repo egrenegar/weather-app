@@ -17,14 +17,10 @@ function renderSearches() {
 
 $('form').on('submit', function (event) {
     event.preventDefault();
-    // get the user's search from input field
     var city = $('#city-input').val().trim();
     console.log(city)
-    // pushes city search into searches array
     searches.push(city)
-    // stringify the searches and set to local storage
     localStorage.setItem('searches', JSON.stringify(searches))
-    // clears out the search input field
     $('#city-input').val('')
 
     getWeather(city);
@@ -124,7 +120,7 @@ function getForecast(city) {
     renderSearches();
 }
 
-// Adding click event listeners to all elements with a class of "city" when page loads
+// Adding click event listeners to all elements with a class of "city"
 $(document).on("click", ".city", function () {
     var city = $(this).attr('data-city')
     getWeather(city);
